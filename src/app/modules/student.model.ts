@@ -1,5 +1,5 @@
-import { Schema, model, connect } from 'mongoose';
-import { Gurdian, LocalGurdian, Student, Student, UserName } from './student/student.interface';
+import { Schema, model } from 'mongoose';
+import { Gurdian, LocalGurdian, Student, UserName } from './student/student.interface';
 
 const userNameSchema = new Schema<UserName>(
   {
@@ -45,4 +45,4 @@ const studentSchema = new Schema<Student>({
     isActive:['active','inActive']
 })
 
-const Student = model<Student>('Student',studentSchema)
+export const StudentModel = model<Student>('Student',studentSchema)
