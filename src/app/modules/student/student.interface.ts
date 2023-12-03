@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 // import { Schema, model, connect } from 'mongoose';
 
 import { Model, Types } from "mongoose";
@@ -25,23 +26,25 @@ export type TLocalGurdian = {
 }
 
 export type TStudent = {
-  id:string;
-  user:Types.ObjectId;
-  password:string;
-  name: TUserName ,
-  gender:'male'|'female';
-  dateOfBirth:string;
+  id: string;
+  user: Types.ObjectId;
+  password: string;
+  name: TUserName;
+  gender: 'male' | 'female';
+  dateOfBirth: Date;
   email: string;
   contactNo: string;
-  emergencyContactNo:string;
-  bloodGroup:'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
-  presentAddress:string;
-  permanentAddress:string;
+  emergencyContactNo: string;
+  bloodGroup: 'A+' | 'A-' | 'B+' | 'B-' | 'AB+' | 'AB-' | 'O+' | 'O-';
+  presentAddress: string;
+  permanentAddress: string;
   gurdian: TGurdian;
-  localGurdian:TLocalGurdian;
-  profileImg?:string;
-  isDeleted:boolean;
-}
+  localGurdian: TLocalGurdian;
+  profileImg?: string;
+  admissionSemester: Types.ObjectId;
+  isDeleted: boolean;
+  academicDepartment: Types.ObjectId;
+};
 
 
 

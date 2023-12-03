@@ -51,14 +51,19 @@ const localGurdianSchema = new Schema<TLocalGurdian>({
 
 const studentSchema = new Schema<TStudent, StudentModel>({
   id: { type: String, required: true, unique: true },
-  user:{type:Schema.Types.ObjectId, required:[true,'user ID must be needed'],unique:true,ref:'User',},
+  user: {
+    type: Schema.Types.ObjectId,
+    required: [true, 'user ID must be needed'],
+    unique: true,
+    ref: 'User',
+  },
   name: { type: userNameSchema, required: true },
   gender: {
     type: String,
     enum: { values: ['male', 'female'], message: '{VALUE} is not valid' },
     required: true,
   },
-  dateOfBirth: { type: String },
+  dateOfBirth: { type: Date },
   email: {
     type: String,
     required: true,
@@ -80,7 +85,12 @@ const studentSchema = new Schema<TStudent, StudentModel>({
   gurdian: { type: gurdianSchema, required: true },
   localGurdian: { type: localGurdianSchema, required: true },
   profileImg: { type: String },
+  admissionSemester: { type: Schema.Types.ObjectId, ref: 'AcademicSemester' },
   isDeleted: { type: Boolean, default: false },
+  academicDepartment: {
+    type: Schema.Types.ObjectId,
+    ref: 'AcademicDepartment',
+  },
 });
 
 
